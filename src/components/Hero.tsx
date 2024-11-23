@@ -126,7 +126,7 @@ const Hero = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6">
             <a 
-              href="/pdfcv.pdf"
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors hover:-translate-y-0.5 hover:shadow-lg"
