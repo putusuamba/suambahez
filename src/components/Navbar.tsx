@@ -63,15 +63,28 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    if (isDarkMode) {
+    // Cek preferensi sistem
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDarkMode(prefersDark);
+
+    // Terapkan mode sesuai preferensi sistem
+    if (prefersDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDarkMode]);
+  }, []);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prev) => {
+      const newMode = !prev;
+      if (newMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      return newMode;
+    });
   };
 
   // Modifikasi fungsi toggle menu
@@ -142,7 +155,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
               </motion.button>
             </div>
           </div>
@@ -153,7 +166,7 @@ const Navbar = () => {
               onClick={toggleDarkMode}
               className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
             <button
