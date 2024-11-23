@@ -22,14 +22,14 @@ const blogs = [
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-20">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+    <section id="blog" className="py-4 sm:py-20">
+      <div className="bg-white dark:bg-gray-800 rounded-none sm:rounded-2xl p-4 sm:p-8 shadow-lg">
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">
             Latest <span className="text-blue-600">Blog</span> Posts
           </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-8">
           {blogs.map((blog) => (
             <article
               key={blog.title}

@@ -58,9 +58,9 @@ const Skills = () => {
           }
         }
       }}
-      className="py-20"
+      className="py-10 sm:py-20"
     >
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-8 shadow-lg">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl font-bold relative">
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Skills</span>

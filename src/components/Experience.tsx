@@ -43,8 +43,8 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-10 md:py-20 px-4 md:px-0">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-8 shadow-lg relative overflow-hidden">
+    <section id="experience" className="py-4 md:py-20 px-0 md:px-0">
+      <div className="bg-white dark:bg-gray-800 rounded-none sm:rounded-2xl p-4 sm:p-8 shadow-lg relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-blue-500/10 to-purple-500/10 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-green-500/10 to-teal-500/10 blur-3xl"></div>

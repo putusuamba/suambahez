@@ -23,7 +23,7 @@ const Footer = () => {
     },
     {
       icon: Github,
-      href: 'https://github.com/suambaady',
+      href: 'https://github.com/SuambaHez',
       title: 'GitHub',
       color: 'group-hover:bg-gray-800',
     }
@@ -68,14 +68,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-20 pb-10 overflow-hidden">
+    <footer className="relative pt-4 sm:pt-20 pb-4 sm:pb-10 overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-0/10 rounded-full filter blur-3xl"></div>
 
-      <div className="relative container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative mx-auto px-0 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-0">
           {/* Main content */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             {/* Brand section */}
