@@ -17,7 +17,7 @@ const skills = [
   {
     name: 'JavaScript',
     icon: '⚡️',
-    color: 'from-yellow-400 to-yellow-400',
+    color: 'from-yellow-300 to-yellow-300',
     progress: 72,
   },
   {

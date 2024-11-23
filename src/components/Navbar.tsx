@@ -47,24 +47,9 @@ const Navbar = () => {
     }
   };
 
-  // Animasi untuk mobile menu
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
-    },
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
-    }
+  // Modifikasi fungsi toggle menu
+  const toggleMenu = () => {
+    setIsMenuOpen(prevState => !prevState);
   };
 
   const navItems = [
@@ -126,42 +111,42 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Hamburger Menu Button */}
-          <motion.button
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Toggle menu"
+          {/* Hamburger Menu Button yang diperbarui */}
+          <button
+            type="button"
+            onClick={toggleMenu}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation"
           >
+            <span className="sr-only">Open main menu</span>
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              <X className="block h-6 w-6" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+              <Menu className="block h-6 w-6" aria-hidden="true" />
             )}
-          </motion.button>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu yang diperbarui */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
           >
             <div className="px-4 py-2 space-y-1">
-              {navItems.map((item, index) => (
-                <motion.button
+              {navItems.map((item) => (
+                <button
                   key={item.sectionId}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.sectionId)}
+                  onClick={() => {
+                    scrollToSection(item.sectionId);
+                    setIsMenuOpen(false);
+                  }}
                   className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-300
                     ${activeSection === item.sectionId
                       ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
@@ -170,7 +155,7 @@ const Navbar = () => {
                   `}
                 >
                   {item.label}
-                </motion.button>
+                </button>
               ))}
             </div>
           </motion.div>
