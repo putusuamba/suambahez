@@ -68,27 +68,27 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-4 pb-2 overflow-hidden">
+    <footer className="relative pt-2 pb-2 overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-0/10 rounded-full filter blur-3xl"></div>
 
-      <div className="relative mx-auto px-4">
+      <div className="relative mx-auto px-2">
         <div className="max-w-7xl mx-auto">
-          {/* Main content dengan gap yang lebih kecil */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-            {/* Brand section dengan margin yang lebih kecil */}
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-2">
+          {/* Main content dengan gap yang sangat kecil untuk mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+            {/* Brand section */}
+            <div className="lg:col-span-2 mb-2 md:mb-4">
+              <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">
                 Suamba<span className="text-blue-600">Hez</span>
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3 max-w-md">
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-2 md:mb-3 max-w-md">
                 A passionate web developer focused on creating amazing and innovative web experiences.
               </p>
               
               {/* Social Links */}
-              <div className="flex gap-2">
+              <div className="flex gap-1.5 md:gap-2">
                 {socialLinks.map(({ icon: Icon, href, title, color }) => (
                   <a
                     key={href}
@@ -117,13 +117,13 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links dengan spacing yang lebih kecil */}
-            <div>
-              <h4 className="text-lg font-semibold mb-2 relative inline-block">
+            {/* Quick Links */}
+            <div className="mb-2 md:mb-0">
+              <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2 relative inline-block">
                 Quick Links
                 <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <ul className="space-y-1.5">
+              <ul className="space-y-0.5 md:space-y-1.5">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <a
@@ -163,22 +163,22 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info dengan spacing yang lebih kecil */}
+            {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-2 relative inline-block">
+              <h4 className="text-base md:text-lg font-semibold mb-1 md:mb-2 relative inline-block">
                 Contact Info
                 <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <div className="space-y-1.5">
+              <div className="space-y-1 md:space-y-1.5">
                 {contactInfo.map((info, index) => (
-                  <div key={index}>
+                  <div key={index} className="mb-1 last:mb-0">
                     {info.link ? (
                       <a
                         href={info.link}
                         target={info.link.startsWith('http') ? '_blank' : undefined}
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className={`
-                          group flex items-center p-3 rounded-xl
+                          group flex items-center p-2 md:p-3 rounded-lg
                           border border-gray-100 dark:border-gray-700
                           transition-all duration-300
                           hover:shadow-md
@@ -189,7 +189,7 @@ const Footer = () => {
                       </a>
                     ) : (
                       <div className={`
-                        group flex items-center p-3 rounded-xl
+                        group flex items-center p-2 md:p-3 rounded-lg
                         border border-gray-100 dark:border-gray-700
                         transition-all duration-300
                         ${info.color}
@@ -203,7 +203,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom bar dengan padding yang lebih kecil */}
+          {/* Bottom bar */}
           <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col sm:flex-row justify-between items-center">
               <p className="text-gray-600 dark:text-gray-400 text-sm">

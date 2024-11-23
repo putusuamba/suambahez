@@ -5,7 +5,11 @@ import { Menu, X, Sun, Moon } from 'lucide-react'; // Import icons
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Cek localStorage saat pertama kali load
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
 
   const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
@@ -63,28 +67,17 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    // Cek preferensi sistem
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDarkMode(prefersDark);
-
-    // Terapkan mode sesuai preferensi sistem
-    if (prefersDark) {
+    // Update classList dan localStorage setiap kali isDarkMode berubah
+    if (isDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, []);
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    setIsDarkMode((prev) => {
-      const newMode = !prev;
-      if (newMode) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      return newMode;
-    });
+    setIsDarkMode(!isDarkMode);
   };
 
   // Modifikasi fungsi toggle menu
@@ -155,7 +148,7 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
               </motion.button>
             </div>
           </div>
@@ -166,7 +159,7 @@ const Navbar = () => {
               onClick={toggleDarkMode}
               className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? <Moon size={20} /> : <Sun size={20} />}
             </button>
 
             <button
