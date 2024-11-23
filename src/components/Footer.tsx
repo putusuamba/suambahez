@@ -68,27 +68,27 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-4 pb-2 overflow-hidden">
+    <footer className="relative pt-2 pb-2 overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-0/10 rounded-full filter blur-3xl"></div>
 
-      <div className="relative mx-auto px-4">
+      <div className="relative mx-auto px-2 sm:px-4">
         <div className="max-w-7xl mx-auto">
           {/* Main content dengan gap yang lebih kecil */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-            {/* Brand section dengan margin yang lebih kecil */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mb-2 sm:mb-4">
+            {/* Brand section */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-2">
+              <h3 className="text-2xl font-bold mb-1 sm:mb-2">
                 Suamba<span className="text-blue-600">Hez</span>
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-3 max-w-md">
+              <p className="text-gray-600 dark:text-gray-300 mb-2 sm:mb-3 max-w-md">
                 A passionate web developer focused on creating amazing and innovative web experiences.
               </p>
               
               {/* Social Links */}
-              <div className="flex gap-2">
+              <div className="flex gap-1.5 sm:gap-2">
                 {socialLinks.map(({ icon: Icon, href, title, color }) => (
                   <a
                     key={href}
@@ -98,8 +98,8 @@ const Footer = () => {
                     className="group"
                   >
                     <div className={`
-                      p-3
-                      rounded-xl
+                      p-2 sm:p-3
+                      rounded-lg
                       bg-white dark:bg-gray-800
                       border border-gray-200 dark:border-gray-700
                       transition-all duration-300
@@ -109,7 +109,7 @@ const Footer = () => {
                       group-hover:-translate-y-1
                       flex items-center justify-center
                     `}>
-                      <Icon className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />
                     </div>
                     <span className="sr-only">{title}</span>
                   </a>
@@ -117,18 +117,18 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links dengan spacing yang lebih kecil */}
+            {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-2 relative inline-block">
+              <h4 className="text-lg font-semibold mb-1 sm:mb-2 relative inline-block">
                 Quick Links
                 <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <ul className="space-y-1.5">
+              <ul className="space-y-1">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <a
                       href={`#${link.name.toLowerCase()}`}
-                      className="group flex items-center p-2 -mx-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300"
+                      className="group flex items-center p-1.5 sm:p-2 -mx-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300"
                     >
                       <span className="relative flex h-8 w-8 mr-3 items-center justify-center">
                         {/* Animated background */}
@@ -163,13 +163,13 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info dengan spacing yang lebih kecil */}
+            {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-2 relative inline-block">
+              <h4 className="text-lg font-semibold mb-1 sm:mb-2 relative inline-block">
                 Contact Info
                 <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 {contactInfo.map((info, index) => (
                   <div key={index}>
                     {info.link ? (
@@ -178,7 +178,7 @@ const Footer = () => {
                         target={info.link.startsWith('http') ? '_blank' : undefined}
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className={`
-                          group flex items-center p-3 rounded-xl
+                          group flex items-center p-2 sm:p-3 rounded-lg
                           border border-gray-100 dark:border-gray-700
                           transition-all duration-300
                           hover:shadow-md
@@ -189,7 +189,7 @@ const Footer = () => {
                       </a>
                     ) : (
                       <div className={`
-                        group flex items-center p-3 rounded-xl
+                        group flex items-center p-2 sm:p-3 rounded-lg
                         border border-gray-100 dark:border-gray-700
                         transition-all duration-300
                         ${info.color}
@@ -203,13 +203,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom bar dengan padding yang lebih kecil */}
-          <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
+          {/* Bottom bar */}
+          <div className="pt-2 mt-2 sm:pt-3 sm:mt-3 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col sm:flex-row justify-between items-center">
-              <p className="text-gray-600 dark:text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
                 © {new Date().getFullYear()} SuambaHez. All rights reserved.
               </p>
-              <p className="text-gray-500 dark:text-gray-400 text-sm mt-1 sm:mt-0">
+              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-1 sm:mt-0">
                 Made with ❤️ in Bali
               </p>
             </div>
@@ -223,26 +223,26 @@ const Footer = () => {
 const ContactInfoContent = ({ info }) => (
   <>
     <div className={`
-      w-10 h-10 rounded-lg
+      w-8 h-8 sm:w-10 sm:h-10 rounded-lg
       bg-gray-50 dark:bg-gray-800
       flex items-center justify-center
       group-hover:scale-110
       transition-transform duration-300
-      mr-4
+      mr-3 sm:mr-4
     `}>
       {info.icon}
     </div>
     <div className="flex-1">
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
         {info.label}
       </p>
-      <p className={`font-medium text-gray-900 dark:text-gray-100 ${info.isSmall ? 'text-sm' : ''}`}>
+      <p className={`font-medium text-gray-900 dark:text-gray-100 ${info.isSmall ? 'text-xs sm:text-sm' : 'text-sm'}`}>
         {info.value}
       </p>
     </div>
     {info.link && (
       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
       </div>
     )}
   </>
