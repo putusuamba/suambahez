@@ -76,14 +76,15 @@ const Navbar = () => {
   }, []);
 
   const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    
-    if (newMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    setIsDarkMode((prev) => {
+      const newMode = !prev;
+      if (newMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      return newMode;
+    });
   };
 
   // Modifikasi fungsi toggle menu
