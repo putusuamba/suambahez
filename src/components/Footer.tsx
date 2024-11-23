@@ -68,27 +68,27 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-4 sm:pt-12 pb-4 sm:pb-8 overflow-hidden">
+    <footer className="relative pt-8 pb-4 overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900"></div>
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-0/10 rounded-full filter blur-3xl"></div>
 
-      <div className="relative mx-auto px-4 sm:px-6">
+      <div className="relative mx-auto px-4">
         <div className="max-w-7xl mx-auto">
-          {/* Main content dengan gap yang lebih kecil untuk mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 sm:mb-16">
-            {/* Brand section dengan margin bottom yang lebih kecil di mobile */}
+          {/* Main content dengan gap yang lebih kecil */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {/* Brand section */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-4 sm:mb-6">
+              <h3 className="text-2xl font-bold mb-3">
                 Suamba<span className="text-blue-600">Hez</span>
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-md">
+              <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-md">
                 A passionate web developer focused on creating amazing and innovative web experiences.
               </p>
               
               {/* Social Links */}
-              <div className="flex gap-3 sm:gap-4">
+              <div className="flex gap-3">
                 {socialLinks.map(({ icon: Icon, href, title, color }) => (
                   <a
                     key={href}
@@ -117,13 +117,13 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links dengan spacing yang lebih kecil di mobile */}
+            {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 sm:mb-6 relative inline-block">
+              <h4 className="text-lg font-semibold mb-3 relative inline-block">
                 Quick Links
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <ul className="space-y-2 sm:space-y-3">
+              <ul className="space-y-2">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <a
@@ -163,13 +163,13 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Info dengan spacing yang lebih kecil di mobile */}
+            {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 sm:mb-6 relative inline-block">
+              <h4 className="text-lg font-semibold mb-3 relative inline-block">
                 Contact Info
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-transparent"></div>
               </h4>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-2">
                 {contactInfo.map((info, index) => (
                   <div key={index}>
                     {info.link ? (
@@ -203,8 +203,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom bar dengan padding yang lebih kecil di mobile */}
-          <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-gray-200 dark:border-gray-700">
+          {/* Bottom bar */}
+          <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col sm:flex-row justify-between items-center">
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 © {new Date().getFullYear()} SuambaHez. All rights reserved.
