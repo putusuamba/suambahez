@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react'; // Import icons
+import { Menu, X, Sun, Moon } from 'lucide-react'; // Import icons
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleScroll = useCallback(() => {
     const scrollPosition = window.scrollY;
@@ -60,6 +61,18 @@ const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   // Modifikasi fungsi toggle menu
   const toggleMenu = () => {
@@ -122,24 +135,42 @@ const Navbar = () => {
                   )}
                 </motion.button>
               ))}
+              
+              <motion.button
+                onClick={toggleDarkMode}
+                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </motion.button>
             </div>
           </div>
 
-          {/* Hamburger Menu Button yang diperbarui */}
-          <button
-            type="button"
-            onClick={toggleMenu}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation"
-          >
-            <span className="sr-only">Open main menu</span>
-            {isMenuOpen ? (
-              <X className="block h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="block h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+          {/* Mobile buttons */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleDarkMode}
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle navigation"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
