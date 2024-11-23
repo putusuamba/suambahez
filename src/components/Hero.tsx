@@ -13,7 +13,7 @@ const Hero = () => {
       className="mb-8 sm:mb-20 pt-2 sm:pt-8"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mx-auto px-0 sm:px-6 max-w-full overflow-hidden">
-        <div className="relative bg-white dark:bg-gray-800 p-4 sm:p-8 rounded-2xl shadow-lg">
+        <div className="relative bg-white p-4 sm:p-8 rounded-2xl shadow-lg">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8">
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
@@ -31,7 +31,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="text-gray-600 dark:text-gray-300 flex-1 text-center sm:text-left">
+            <div className="text-gray-600 flex-1 text-center sm:text-left">
               <h3 className="text-lg sm:text-xl font-semibold">I Putu Gede Suamba Adi Putra</h3>
               <p className="text-xs">Frontend Developer</p>
               <p className="text-xs mb-3">Bali, Indonesia 🌴</p>
