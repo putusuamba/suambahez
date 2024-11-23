@@ -12,7 +12,7 @@ const Hero = () => {
       transition={{ duration: 0.8 }}
       className="mb-8 sm:mb-20 pt-2 sm:pt-8"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mx-auto px-0 sm:px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mx-auto px-0 sm:px-6 max-w-full overflow-hidden">
         <div className="relative bg-white dark:bg-gray-800 p-4 sm:p-8 rounded-2xl shadow-lg">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-8">
             <div className="relative group">
