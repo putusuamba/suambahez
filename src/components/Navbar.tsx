@@ -37,15 +37,29 @@ const Navbar = () => {
     
     const element = document.getElementById(sectionId);
     if (element) {
-      const navHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth"
-      });
+      setTimeout(() => {
+        const navHeight = 64;
+        const elementPosition = element.offsetTop - navHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth"
+        });
+      }, 100);
     }
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   // Modifikasi fungsi toggle menu
   const toggleMenu = () => {
@@ -143,7 +157,8 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <button
                   key={item.sectionId}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     scrollToSection(item.sectionId);
                     setIsMenuOpen(false);
                   }}
