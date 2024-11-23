@@ -29,9 +29,9 @@ const Contact = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="py-4 sm:py-20 min-h-[80vh] sm:min-h-screen scroll-mt-20"
+      className="py-4 sm:py-20 min-h-fit sm:min-h-screen scroll-mt-20"
     >
-      <div className="bg-white dark:bg-gray-800 rounded-none sm:rounded-2xl p-4 sm:p-8 shadow-lg">
+      <div className="bg-white dark:bg-gray-800 rounded-none sm:rounded-2xl p-4 sm:p-8 shadow-lg mb-4 sm:mb-8">
         <h2 className="text-3xl font-bold mb-2">
           Let's <span className="text-blue-600">👋 Work</span> Together
         </h2>
