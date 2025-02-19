@@ -1,0 +1,26 @@
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Untuk mengatasi masalah overflow pada mobile */
+#__next, /* untuk Next.js */
+#root { /* untuk React biasa */
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+} 
+
+/* Mencegah scroll horizontal */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#root {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+} 

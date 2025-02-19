@@ -1,0 +1,135 @@
+/* Base styles */
+body {
+  font-size: 16px; /* Ukuran dasar font */
+  line-height: 1.5;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  /* Reset total */
+  *, 
+  *::before, 
+  *::after {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* Container */
+  .container,
+  .wrapper,
+  main {
+    padding: 1px !important;
+  }
+
+  /* Semua section dan card */
+  section,
+  .section,
+  .card,
+  .project-card,
+  .work-together-section,
+  .contact-section,
+  .content-box {
+    margin: 1px 0 !important;
+    padding: 1px !important;
+  }
+
+  /* Text elements */
+  h1, h2, h3, p, 
+  .title, .description {
+    margin: 1px 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* Meta info (tanggal, waktu baca) */
+  .meta-info,
+  .date,
+  .read-time {
+    margin: 1px 0 !important;
+    line-height: 1 !important;
+  }
+
+  /* Hapus semua spacing */
+  .grid,
+  .flex-container {
+    gap: 0 !important;
+  }
+
+  /* Button */
+  .button,
+  .send-message {
+    margin: 1px 0 !important;
+    padding: 1px !important;
+  }
+}
+
+/* Untuk layar yang sangat kecil */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 18px; /* Perbesar lagi untuk layar sangat kecil */
+  }
+
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .card {
+    margin: 8px 0; /* Lebih kecil lagi untuk layar sangat kecil */
+  }
+
+  section {
+    margin-bottom: 15px;
+  }
+
+  section {
+    margin-bottom: 10px !important;
+    padding: 5px 0;
+  }
+}
+
+/* Penyesuaian responsive untuk mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%; /* Menggunakan width 90% dari layar */
+    padding: 0 15px;
+  }
+
+  /* Hamburger menu styles */
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .nav-menu {
+    display: none; /* Sembunyikan menu default */
+    width: 100%;
+  }
+
+  .nav-menu.active {
+    display: block; /* Tampilkan saat hamburger di klik */
+  }
+
+  /* Perbaikan jarak contact dan footer */
+  .contact-section {
+    margin-bottom: 40px; /* Kurangi margin bottom */
+  }
+
+  .footer {
+    margin-top: 20px; /* Kurangi margin top */
+  }
+
+  /* Mengurangi margin/padding sections */
+  section {
+    padding: 40px 0;  /* Kurangi padding vertical */
+    margin-bottom: 30px; /* Kurangi margin bottom */
+  }
+  
+  /* Jika ada specific sections seperti blog dan contact */
+  #blog,
+  #contact {
+    margin-bottom: 20px;
+    padding: 30px 0;
+  }
+} 
